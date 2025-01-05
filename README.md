@@ -34,7 +34,18 @@ The script ``test/api.py`` serves as a first step to ensure successful communica
 This project focuses on analyzing heart rate data collected from Garmin devices to uncover meaningful insights about daily activity, sleep patterns, and physical performance. By leveraging data analysis techniques, we aim to answer key questions related to heart rate behavior and its correlation with lifestyle factors.
 
 #### Key Questions:
-1. __What are the average, minimum, and maximum heart rate values on a daily basis?__
+1. __What are the average, minimum, and maximum heart rate values on a daily basis?__  
+* Calculate the minimum, average, and maximum heart rate globally.
+* Visualize these values using appropriate charts.
+* Track the reference values for the most recent day available.
+
 2. __How does heart rate differ during sleep compared to waking hours?__
+* Compare the average heart rate during sleep with the average heart rate between 12:00 PM and 10:00 PM.
+* Calculate the average heart rate for deep sleep, REM sleep, and light sleep.
+
 3. __How does nighttime heart rate change on days with physical activity?__
+* Does the average nighttime heart rate increase or decrease on days with physical activity?
+
 4. __Is there a correlation between the number of steps taken and the average heart rate?__
+* Are the number of steps and the average heart rate correlated?
+* Divide days into categories based on step count ranges and analyze how the average heart rate varies across these categories.
