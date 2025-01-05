@@ -28,3 +28,13 @@ The script ``test/api.py`` serves as a first step to ensure successful communica
 ``script.py``: This script handles the interaction with the GarminConnect API. It fetches raw data such as heart rate, steps, and sleep data for further processing. <br>
 ``main.ipynb``: A Jupyter Notebook for performing statistical analysis, visualizing trends, and generating insights using the cleaned data.<br>
 ``.env``: A file for securely storing sensitive information, such as API credentials (email and password). This file is excluded from version control for security purposes.
+
+### Project Goals: Exploring Heart Rate Trends
+
+This project focuses on analyzing heart rate data collected from Garmin devices to uncover meaningful insights about daily activity, sleep patterns, and physical performance. By leveraging data analysis techniques, we aim to answer key questions related to heart rate behavior and its correlation with lifestyle factors.
+
+#### Key Questions:
+1. __What are the average, minimum, and maximum heart rate values on a daily basis?__
+2. __How does heart rate differ during sleep compared to waking hours?__
+3. __How does nighttime heart rate change on days with physical activity?__
+4. __Is there a correlation between the number of steps taken and the average heart rate?__
