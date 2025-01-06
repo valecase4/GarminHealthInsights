@@ -23,20 +23,22 @@ def fetch_sleep_data_stages(client, date):
         1: "Deep",
         2: "Light",
         3: "REM",
-        4: "Awake"
+        0: "Awake"
     }
     try:
         data = client.get_sleep_data(date)['sleepLevels']
-        # sleep_data_stages = []
+        sleep_data_stages = []
         for record in data:
             print(record)
-            start_time = record['startGMT'].split("T")[1]
-            end_time = record['endGMT'].split("T")[1]
+            start_gmt_time = datetime.strptime(record['startGMT'], "%Y-%m-%dT%H:%M:%S.%f")
+            start_local_time = (start_gmt_time + timedelta(hours=1)).strftime("%H:%M")
+            end_gtm_time = datetime.strptime(record['endGMT'], "%Y-%m-%dT%H:%M:%S.%f")
+            end_local_time = (end_gtm_time + timedelta(hours=1)).strftime("%H:%M")
             sleep_stage = stages[int(record['activityLevel'])]
 
-            print([start_time, end_time, sleep_stage])
+            print([start_local_time, end_local_time, sleep_stage])
 
-            sleep_data_stages.append([start_time, end_time, sleep_stage])
+            sleep_data_stages.append([start_local_time, end_local_time, sleep_stage])
 
         print(f"Sleep data retrieved for {date}.")
         return sleep_data_stages

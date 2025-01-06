@@ -52,6 +52,32 @@ def fetch_activity_data(client):
         print(f"Error fetching activity data: {e}")
         return None
     
+def fetch_sleep_stages_data(client, date):
+    stages = {
+        1: "Deep",
+        2: "Light",
+        3: "REM",
+        0: "Awake"
+    } 
+
+    try:
+        data = client.get_sleep_data(date)['sleepLevels']
+        sleep_data_stages = []
+        for record in data:
+            start_gmt_time = datetime.strptime(record['startGMT'], "%Y-%m-%dT%H:%M:%S.%f")
+            start_local_time = (start_gmt_time + timedelta(hours=1)).strftime("%H:%M")
+            end_gtm_time = datetime.strptime(record['endGMT'], "%Y-%m-%dT%H:%M:%S.%f")
+            end_local_time = (end_gtm_time + timedelta(hours=1)).strftime("%H:%M")
+            sleep_stage = stages[int(record['activityLevel'])]
+
+            sleep_data_stages.append([start_local_time, end_local_time, sleep_stage])
+        
+        return sleep_data_stages
+    
+    except Exception as e:
+        print(f"Error fetching sleep data: {e}")
+        return None
+    
 def save_to_csv(data, filename, columns, look_for_duplicates=True):
     try:
         if look_for_duplicates and os.path.exists(filename):
@@ -114,6 +140,16 @@ def main(start_date="2024-12-21"):
         "data/raw/activities/activities.csv",
         ["date", "activity (Y/N)"],
         look_for_duplicates=False
+        )
+    
+    # SLEEP STAGES
+    for date in date_list:
+        sleep_stages_data = fetch_sleep_stages_data(client, date)
+        save_to_csv(
+            sleep_stages_data,
+            f"data/raw/sleep/stages/{date}.csv",
+            ["start_time", "end_time", "sleep_stage"],
+            look_for_duplicates=True
         )
     
     steps_data = []

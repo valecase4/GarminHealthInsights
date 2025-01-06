@@ -1,0 +1,11 @@
+start_time,end_time,sleep_stage
+04:38,04:43,Deep
+04:43,05:53,Awake
+05:53,06:03,Deep
+06:03,06:28,Light
+06:28,06:29,REM
+06:29,06:41,Deep
+06:41,06:48,Awake
+06:48,06:51,REM
+06:51,07:57,Deep
+07:57,08:08,Awake

@@ -13,13 +13,13 @@ timestamp,heart_rate
 2nd Key Question:
 How does heart rate differ during sleep compared to waking hours?
 Necessary Data: Timestamp; Heart Rate; Sleep Stage  
-Directory: data/raw/sleep
-Strategy: Create a CSV file for each day containing the following columns: timestamp, heart_rate, sleep_stage  
+Directory: data/raw/sleep/stages
+Strategy: Create a CSV file for each day containing the following columns: start_time, end_time, sleep_stage  
 Example:
 filename: "2024-12-28.csv"
-start_time,end_time,heart_rate,sleep_stage
-23:00:00,62,deep
-23:02:00,64,light
+start_time,end_time,sleep_stage
+23:40,23:52,deep
+23:52,23:56,awake
 ...
 
 3rd Key Question:
