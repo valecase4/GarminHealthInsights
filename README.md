@@ -26,8 +26,10 @@ The script ``test/api.py`` serves as a first step to ensure successful communica
 - ``data/cleaned``: Stores processed and cleaned data ready for the analysis. <br>
 
 ``script.py``: This script handles the interaction with the GarminConnect API. It fetches raw data such as heart rate, steps, and sleep data for further processing. <br>
+``report.py``: This script handles the generation of the PDF report. <br>
 ``main.ipynb``: A Jupyter Notebook for performing statistical analysis, visualizing trends, and generating insights using the cleaned data.<br>
-``.env``: A file for securely storing sensitive information, such as API credentials (email and password). This file is excluded from version control for security purposes.
+``.env``: A file for securely storing sensitive information, such as API credentials (email and password). This file is excluded from version control for security purposes.<br>
+
 
 ### Project Goals: Exploring Heart Rate Trends
 
