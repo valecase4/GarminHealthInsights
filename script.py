@@ -31,16 +31,48 @@ def fetch_heart_rate(client, date):
         print(f"Error fetching heart rate data: {e}")
         return None
     
-def main():
+def save_to_csv(data, filename, columns, look_for_duplicates=True):
+    try:
+        if look_for_duplicates and os.path.exists(filename):
+            print(f"File '{filename}' already exists. Skipping save.")
+            return
+        
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        with open(filename, mode='w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(columns)  # Intestazioni
+            writer.writerows(data)   # Dati
+        print(f"Data saved to {filename}.")
+    except Exception as e:
+        print(f"Error saving data to CSV: {e}")
+    
+def main(start_date="2024-12-21"):
     client = authenticate()
     if not client:
         return
     
-    date = datetime.now().strftime("%Y-%m-%d")
+    end_date = datetime.now().strftime("%Y-%m-%d")
 
-    heart_rate_data = fetch_heart_rate(client, date)
-    if heart_rate_data:
-        print(heart_rate_data)
+    date_list = [
+        (datetime.strptime(start_date, "%Y-%m-%d") + timedelta(days=i)).strftime("%Y-%m-%d")
+        for i in range((datetime.strptime(end_date, "%Y-%m-%d") - datetime.strptime(start_date, "%Y-%m-%d")).days + 1)
+    ]
+
+    heart_rate_data = {}
+    for date in date_list:
+        print(f"Fetching heart rate data for {date}...")
+        daily_data = fetch_heart_rate(client, date)
+        if daily_data:
+            heart_rate_data[date] = daily_data
+            save_to_csv(
+                daily_data,
+                f"data/raw/heart_rates/{date}.csv",
+                ["timestamp", "heart_rate"],
+                look_for_duplicates=True
+            )
+        
+    print("Data collection complete.")
+
 
 if __name__ == "__main__":
     main()
