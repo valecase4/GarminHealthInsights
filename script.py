@@ -54,10 +54,10 @@ def fetch_activity_data(client):
     
 def fetch_sleep_stages_data(client, date):
     stages = {
-        1: "Deep",
-        2: "Light",
-        3: "REM",
-        0: "Awake"
+        0: "Deep",
+        1: "Light",
+        2: "REM",
+        3: "Awake"
     } 
 
     try:
