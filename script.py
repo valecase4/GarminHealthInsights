@@ -30,6 +30,27 @@ def fetch_heart_rate(client, date):
     except Exception as e:
         print(f"Error fetching heart rate data: {e}")
         return None
+
+def fetch_steps(client, date):
+    try:
+        steps_sum = 0
+        data = client.get_steps_data(date)
+        for record in data:
+            steps_sum += record['steps']
+        print(f"Step data retrieved for {date}.")
+        return steps_sum
+    except Exception as e:
+        print(f"Error fetching step data: {e}")
+        return None
+
+def fetch_activity_data(client):
+    try:
+        activities = client.get_activities(0, 1000) 
+        print("Activity data retrieved.")
+        return activities
+    except Exception as e:
+        print(f"Error fetching activity data: {e}")
+        return None
     
 def save_to_csv(data, filename, columns, look_for_duplicates=True):
     try:
@@ -46,14 +67,6 @@ def save_to_csv(data, filename, columns, look_for_duplicates=True):
     except Exception as e:
         print(f"Error saving data to CSV: {e}")
 
-def fetch_activity_data(client):
-    try:
-        activities = client.get_activities(0, 1000) 
-        print("Activity data retrieved.")
-        return activities
-    except Exception as e:
-        print(f"Error fetching activity data: {e}")
-        return None
     
 def main(start_date="2024-12-21"):
     client = authenticate()
@@ -98,10 +111,22 @@ def main(start_date="2024-12-21"):
     
     save_to_csv(
         activities_data,
-        f"data/raw/activities/activities.csv",
+        "data/raw/activities/activities.csv",
         ["date", "activity (Y/N)"],
-        look_for_duplicates=True
+        look_for_duplicates=False
         )
+    
+    steps_data = []
+    for date in date_list:
+        daily_steps = fetch_steps(client, date)
+        steps_data.append([date, daily_steps])
+
+    save_to_csv(
+        steps_data,
+        "data/raw/steps/steps.csv",
+        ["date", "steps_taken"],
+        look_for_duplicates=False
+    )
         
     print("Data collection complete.")
 
