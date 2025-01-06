@@ -1,0 +1,50 @@
+1st Key Question:
+What are the average, minimum, and maximum heart rate values on a daily basis?
+Necessary Data: Timestamp; Heart Rate
+Directory: data/raw/heart_rates
+Strategy: Create a CSV file for each day containing the following columns: timestamp, heart_rate
+Example:
+filename: "2024-12-30.csv"
+timestamp,heart_rate
+00:00:00,65
+00:02:00,67
+00:04:00,62
+
+2nd Key Question:
+How does heart rate differ during sleep compared to waking hours?
+Necessary Data: Timestamp; Heart Rate; Sleep Stage  
+Directory: data/raw/sleep
+Strategy: Create a CSV file for each day containing the following columns: timestamp, heart_rate, sleep_stage  
+Example:
+filename: "2024-12-28.csv"
+timestamp,heart_rate,sleep_stage
+23:00:00,62,deep
+23:02:00,64,light
+...
+
+3rd Key Question:
+How does nighttime heart rate change on days with physical activity?
+Necessary Data: Activities
+Directory: data/raw/activities
+Strategy: Create a unique CSV file that specifies if activity is present or not for each day, with the following
+columns: day,activity (Y/N)
+Example:
+filename: "activities.csv"
+date,activity
+2024-12-30,Yes
+2024-12-31,No 
+2025-01-01,No
+...
+
+4th Key Question:
+Is there a correlation between the number of steps taken and the average heart rate?
+Necessary Data: steps
+Directory: data/raw/steps
+Strategy: Create a unique CSV file that specifies the number of steps taken for each day with the following columns: date,steps
+Example:
+filename: "steps.csv"
+date,steps
+2024-12-30,10980
+2024-12-31,14500
+2025-01-01,2300
+...
