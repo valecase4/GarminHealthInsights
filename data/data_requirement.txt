@@ -17,7 +17,7 @@ Directory: data/raw/sleep
 Strategy: Create a CSV file for each day containing the following columns: timestamp, heart_rate, sleep_stage  
 Example:
 filename: "2024-12-28.csv"
-timestamp,heart_rate,sleep_stage
+start_time,end_time,heart_rate,sleep_stage
 23:00:00,62,deep
 23:02:00,64,light
 ...
