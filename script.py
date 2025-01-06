@@ -75,7 +75,23 @@ def fetch_sleep_stages_data(client, date):
         return sleep_data_stages
     
     except Exception as e:
-        print(f"Error fetching sleep data: {e}")
+        print(f"Error fetching sleep data (stages): {e}")
+        return None
+
+def fetch_sleep_heart_rates_data(client, date):
+    try:
+        data = client.get_sleep_data(date)['sleepHeartRate']
+        heart_rates_sleep_data = []
+        for record in data:
+            heart_rate = record['value']
+            timestamp = datetime.fromtimestamp(int(record['startGMT']) / 1000)
+            timestamp = timestamp.strftime("%H:%M")
+            heart_rates_sleep_data.append([heart_rate, timestamp])
+        
+        return heart_rates_sleep_data
+
+    except Exception as e:
+        print(f"Error fetching sleep data (heart rates): {e}")
         return None
     
 def save_to_csv(data, filename, columns, look_for_duplicates=True):
@@ -151,7 +167,18 @@ def main(start_date="2024-12-21"):
             ["start_time", "end_time", "sleep_stage"],
             look_for_duplicates=True
         )
-    
+
+    # SLEEP HEART RATES
+    for date in date_list:
+        sleep_heart_rates_data = fetch_sleep_heart_rates_data(client, date)
+        save_to_csv(
+            sleep_heart_rates_data,
+            f"data/raw/sleep/heart_rates/{date}.csv",
+            ["timestamp", "heart_rate"],
+            look_for_duplicates=True
+        )
+
+    # STEPS
     steps_data = []
     for date in date_list:
         daily_steps = fetch_steps(client, date)
