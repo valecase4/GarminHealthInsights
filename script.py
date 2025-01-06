@@ -165,7 +165,7 @@ def main(start_date="2024-12-21"):
             sleep_stages_data,
             f"data/raw/sleep/stages/{date}.csv",
             ["start_time", "end_time", "sleep_stage"],
-            look_for_duplicates=True
+            look_for_duplicates=False
         )
 
     # SLEEP HEART RATES
