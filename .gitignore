@@ -6,3 +6,5 @@ share/
 *.cfg
 
 *.env
+
+.ipynb_checkpoints/
