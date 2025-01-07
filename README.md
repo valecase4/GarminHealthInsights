@@ -25,6 +25,14 @@ The script ``test/api.py`` serves as a first step to ensure successful communica
 - ``data/raw``: Stores raw data collected directly from the API
 - ``data/cleaned``: Stores processed and cleaned data ready for the analysis. <br>
 
+``data_cleaning``: This folder contains all the Jupyter Notebook files dedicated to cleaning and preprocessing the raw datasets. 
+Each file focuses on a specific dataset to ensure a modular and well-organized workflow. <br>
+- ``data_cleaning/clean_steps.ipynb``: This notebook handles the cleaning process for the steps dataset. <br>
+- ``data_cleaning/clean_activities.ipynb``: This notebook focuses on cleaning the activities dataset. <br>
+-  ``data_cleaning/clean_heart_rates.ipynb``: This notebook deals with the heart rates dataset. <br>
+- ``data_cleaning/clean_sleep.ipynb``: This notebook focuses on cleaning the sleep dataset, which includes 
+both heart rate values during sleep and sleep stage data. <br>
+
 ``script.py``: This script handles the interaction with the GarminConnect API. It fetches raw data such as heart rate, steps, and sleep data for further processing. <br>
 ``report.py``: This script handles the generation of the PDF report. <br>
 ``main.ipynb``: A Jupyter Notebook for performing statistical analysis, visualizing trends, and generating insights using the cleaned data.<br>
