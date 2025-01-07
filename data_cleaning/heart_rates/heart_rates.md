@@ -50,6 +50,17 @@ All the files have the same structure.
 
 **Result**:
 The analysis revealed two problematic datasets with a significant number of missing or null values:
-    - 2024-12-25.csv
-    - 2024-12-27.csv
-    - For the dataset 2024-12-21.csv, a high number of missing values was expected, as the device was set up in the afternoon.
+    - `2024-12-25.csv`
+    - `2024-12-27.csv`
+    
+    - For the dataset `2024-12-21.csv`, a high number of missing values was expected, as the device was set up in the afternoon.
+    - All other datasets had a manageable or no amount of missing data.
+
+### **Step 5: Filling Missing Values with Linear Interpolation**
+- **Objective**: Address missing data by applying linear interpolation to fill in missing timestamps and null values in the `heart_rate` column.
+- **Action Taken**:
+     - Reindexed all datasets to ensure timestamps align with the expected 2-minute intervals across 24 hours.
+     - Applied linear interpolation to the `heart_rate` column to fill in gaps caused by missing data.
+- **Result**: Missing timestamps and null values were successfully filled in all datasets using linear interpolation.
+
+All datasets now contain a complete range of timestamps and no null values, ready for further analysis.
