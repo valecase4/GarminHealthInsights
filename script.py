@@ -133,7 +133,7 @@ def main(start_date="2024-12-21"):
                 daily_data,
                 f"data/raw/heart_rates/{date}.csv",
                 ["timestamp", "heart_rate"],
-                look_for_duplicates=True
+                look_for_duplicates=False
             )
 
     # ACTIVITIES
@@ -175,7 +175,7 @@ def main(start_date="2024-12-21"):
             sleep_heart_rates_data,
             f"data/raw/sleep/heart_rates/{date}.csv",
             ["timestamp", "heart_rate"],
-            look_for_duplicates=True
+            look_for_duplicates=False
         )
 
     # STEPS
