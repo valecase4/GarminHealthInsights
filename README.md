@@ -39,7 +39,7 @@ both heart rate values during sleep and sleep stage data. <br>
 ``.env``: A file for securely storing sensitive information, such as API credentials (email and password). This file is excluded from version control for security purposes.<br>
 
 
-### Project Goals: Exploring Heart Rate Trends
+### Project Goals: Exploring Heart Rate Trends (2024-12-21 - 2025-01-06)
 
 This project focuses on analyzing heart rate data collected from Garmin devices to uncover meaningful insights about daily activity, sleep patterns, and physical performance. By leveraging data analysis techniques, we aim to answer key questions related to heart rate behavior and its correlation with lifestyle factors.
 
