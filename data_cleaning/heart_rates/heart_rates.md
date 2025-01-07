@@ -39,3 +39,17 @@ The sample file has the expected structure.
 
 **Result**:
 All the files have the same structure.
+
+### **Step 4: Checking for Missing Values and Missing Timestamp"
+- **Objective**: Identify and quantify missing timestamps and null values for each dataset.
+   - A complete dataset is expected to have 720 rows (timestamps recorded every 2 minutes for a 24-hour period).
+- **Action Taken**:
+   - Reindexed each dataset to ensure the presence of all expected timestamps.
+   - Counted the total number of missing timestamps and null values for each file.
+   - Summed missing timestamps and null values to calculate the total number of missing data points per file.
+
+**Result**:
+The analysis revealed two problematic datasets with a significant number of missing or null values:
+    - 2024-12-25.csv
+    - 2024-12-27.csv
+    - For the dataset 2024-12-21.csv, a high number of missing values was expected, as the device was set up in the afternoon.
