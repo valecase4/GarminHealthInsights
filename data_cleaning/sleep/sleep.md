@@ -130,7 +130,7 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 
 ---
 
-### **Step 9: Duplicate Check**
+### **Step 9: Duplicate Check (Sleep Stages Datasets)**
 
 **Objective:** Verify the integrity of the sleep stages datasets by identifying duplicate rows and overlapping time slots.
 
