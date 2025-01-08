@@ -83,3 +83,9 @@ consecutive `timestamp` values are exactly 2 minutes.
     - Detected 1 outlier in the dataset with timestamp 23:24.
     - Removed the identified outlier and saved the updated dataset.
 - **Results**: The dataset is now free from outliers based on the defined criteria. The modified dataset was successfully saved, ensuring consistency across all heart rate files.
+
+### **Step 8: Duplicate Rows Check**
+- **Objective**: Ensure there are no duplicate rows in each dataset based on the `timestamp` column.
+- **Action Taken**: 
+    - Checked each file for duplicate rows using the `timestamp` column as the unique identifier.
+- **Results**: No duplicate rows were found in any of the files.
