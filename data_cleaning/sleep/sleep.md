@@ -68,3 +68,36 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 
 ---
 
+### **Step 5: Identification of Null Values**
+- **Objective:**  
+  Ensure there are no missing (`NaN`) values in the datasets. 
+
+- **Actions Taken:**  
+  1. Checked for missing values (`NaN`) across all datasets.  
+
+- **Results:**  
+  - No datasets contained null values.
+
+---
+
+### **Step 6: Identification of Missing Time Slots**
+- **Objective:**  
+  Verify if the sleep stages datasets contain any missing time slots between `end_time` of one entry and `start_time` of the next. 
+
+- **Actions Taken:**  
+  1. Scanned all sleep stages datasets for missing time slots.  
+
+- **Results:**  
+  - No missing time slots were found.
+
+### **Step 7: Completeness of Heart Rate Datasets**
+- **Objective:**
+  Assess the completeness of the heart rate datasets by comparing the expected number of entries (based on sleep duration) with the actual entries.
+
+- **Actions Taken:**  
+  1. Calculated the expected number of rows for each dataset based on sleep duration.
+  2. Compared the expected rows with the actual rows for each file.
+
+- **Results:**  
+  - All heart rate datasets were found to be 100% complete.
+  - However, datasets for `2024-12-21` and `2025-01-01` were completely missing and were removed from the analysis.
