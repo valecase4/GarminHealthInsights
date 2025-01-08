@@ -90,6 +90,8 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 - **Results:**  
   - No missing time slots were found.
 
+---
+
 ### **Step 7: Completeness of Heart Rate Datasets**
 - **Objective:**
   Assess the completeness of the heart rate datasets by comparing the expected number of entries (based on sleep duration) with the actual entries.
@@ -101,6 +103,8 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 - **Results:**  
   - All heart rate datasets were found to be 100% complete.
   - However, datasets for `2024-12-21` and `2025-01-01` were completely missing and were removed from the analysis.
+
+---
 
 ### **Step 8:  Identification of Outliers**
 #### **Sleep Stages Datasets**
@@ -123,3 +127,32 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 
 - **Results:**  
   -  No significant outliers detected. Heart rate values were consistent and followed a normal distribution pattern. The IQR method was not applied, as visual analysis showed no extreme deviations.
+
+---
+
+### **Step 9: Duplicate Check**
+
+**Objective:** Verify the integrity of the sleep stages datasets by identifying duplicate rows and overlapping time slots.
+
+---
+
+#### **9.1 Duplicate Rows**
+- **Description:** Checked for rows with identical `start_time` and `end_time` values.
+- **Methodology:** 
+  - Iterated through all files in the dataset directory.
+  - Identified rows where both `start_time` and `end_time` were exactly the same as another row in the file.
+- **Result:**
+  - No duplicate rows were found across all datasets.
+
+---
+
+#### **9.2 Overlapping Time Slots**
+- **Description:** Verified if any time slots overlap or intersect between rows within each dataset.
+- **Methodology:** 
+  - Converted `start_time` and `end_time` to datetime format for precise temporal comparisons.
+  - Sorted each dataset by `start_time`.
+  - Checked if the `end_time` of a row was greater than the `start_time` of the next row.
+- **Result:**
+  - No overlapping or intersecting time slots were found across all datasets.
+
+
