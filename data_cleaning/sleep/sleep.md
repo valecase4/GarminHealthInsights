@@ -101,3 +101,25 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 - **Results:**  
   - All heart rate datasets were found to be 100% complete.
   - However, datasets for `2024-12-21` and `2025-01-01` were completely missing and were removed from the analysis.
+
+### **Step 8:  Identification of Outliers**
+#### **Sleep Stages Datasets**
+- **Objective:**
+  Verify the presence of outliers in the sleep stages datasets.
+
+- **Actions Taken:**  
+  1. Checked all datasets for invalid sleep stage labels.
+
+- **Results:**  
+  -  No outliers detected. All datasets contained only valid labels: "Awake", "REM", "Deep", "Light".
+
+#### **Nighttime Heart Rate Datasets**
+- **Objective:**
+  Verify the presence of outliers in nighttime heart rate datasets.
+
+- **Actions Taken:**  
+  1. Plotted boxplots to visualize the distribution of heart rate values.
+  2. Plotted histograms with density curves to further analyze the data distribution and detect anomalies.
+
+- **Results:**  
+  -  No significant outliers detected. Heart rate values were consistent and followed a normal distribution pattern. The IQR method was not applied, as visual analysis showed no extreme deviations.
