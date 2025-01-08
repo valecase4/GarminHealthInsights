@@ -40,7 +40,7 @@ The sample file has the expected structure.
 **Result**:
 All the files have the same structure.
 
-### **Step 4: Checking for Missing Values and Missing Timestamp"
+### **Step 4: Checking for Missing Values and Missing Timestamp"**
 - **Objective**: Identify and quantify missing timestamps and null values for each dataset.
    - A complete dataset is expected to have 720 rows (timestamps recorded every 2 minutes for a 24-hour period).
 - **Action Taken**:
@@ -64,3 +64,13 @@ The analysis revealed two problematic datasets with a significant number of miss
 - **Result**: Missing timestamps and null values were successfully filled in all datasets using linear interpolation.
 
 All datasets now contain a complete range of timestamps and no null values, ready for further analysis.
+
+### **Step 6: Verification of Data Types and Formats**
+- **Objective**: Ensure that the `timestamp` column is in the correct format (hours:minutes) and that time intervals between
+consecutive timestamps are consistently 2 minutes.
+- **Action Taken**:
+    - Added a new column, time_difference, to calculate the time interval between consecutive timestamps.
+    - Verified that all intervals (excluding the first row) were equal to 2 minutes.
+    - Applied the same verification process to all files in the dataset.
+- **Result**: After applying the verification procedure to all files, it was confirmed that all intervals between
+consecutive `timestamp` values are exactly 2 minutes.
