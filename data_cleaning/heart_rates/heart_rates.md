@@ -74,3 +74,12 @@ consecutive timestamps are consistently 2 minutes.
     - Applied the same verification process to all files in the dataset.
 - **Result**: After applying the verification procedure to all files, it was confirmed that all intervals between
 consecutive `timestamp` values are exactly 2 minutes.
+
+### **Step 7: Identification and Removal of Outliers**
+- **Objective**: Detect and handle outliers in the heart rate data to ensure the validity and reliability of the dataset for analysis.
+- **Strategy**:  From analysis of Garmin Connect data, the highest heart rate recorded during exercise was 187 bpm. Therefore, any values greater than 224 bpm (20% higher than the maximum recorded value) were considered outliers. Considering the resting heart rate trends in Garmin Connect, values below 35 bpm were deemed biologically improbable and marked as outliers.
+- **Action Taken**: 
+    - Implemented a filter to identify values outside the range [35 bpm - 224 bpm] in each dataset.
+    - Detected 1 outlier in the dataset with timestamp 23:24.
+    - Removed the identified outlier and saved the updated dataset.
+- **Results**: The dataset is now free from outliers based on the defined criteria. The modified dataset was successfully saved, ensuring consistency across all heart rate files.
