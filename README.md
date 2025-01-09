@@ -59,3 +59,7 @@ This project focuses on analyzing heart rate data collected from Garmin devices 
 4. __Is there a correlation between the number of steps taken and the average heart rate?__
     * Are the number of steps and the average heart rate correlated?
     * Divide days into categories based on step count ranges and analyze how the average heart rate varies across these categories.
+
+### The Core of the Project
+
+After the phase of data exploration and data cleaning, you find the entire process of data analysis by opening `main.ipynb` file, that represents the main core of the data analysis project. 
