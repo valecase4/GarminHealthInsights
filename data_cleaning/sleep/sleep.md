@@ -155,4 +155,19 @@ Clean and integrate the two types of datasets to produce a unified dataset for e
 - **Result:**
   - No overlapping or intersecting time slots were found across all datasets.
 
+---
+
+### **Step 9: Duplicate Check (Sleep Heart Rate Datasets)**
+
+#### **Objective:**
+Verify that there are no duplicate rows in the datasets concerning nighttime heart rate.
+
+- **Actions Taken:**
+    - Implemented a function to iterate through all files in the directory containing nighttime heart rate data
+    - For each file, checked for duplicate `timestamp` values
+
+- **Results:**
+    - The analysis revealed **no duplicate rows** in any of the datasets.
+
+---
 
