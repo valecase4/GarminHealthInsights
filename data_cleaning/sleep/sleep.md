@@ -171,3 +171,32 @@ Verify that there are no duplicate rows in the datasets concerning nighttime hea
 
 ---
 
+### **Step 10: Merging Heart Rate and Sleep Stage Datasets**
+
+#### **Objective:**
+Combine the nighttime heart rate dataset with the corresponding sleep stage dataset to create a unified dataset for each day.
+
+#### **Actions Taken:**
+1. **Validation of Columns:**
+   - Ensured the presence of necessary columns:
+     - Heart rate dataset: `timestamp`.
+     - Sleep stage dataset: `start_time`, `end_time`, `sleep_stage`.
+
+2. **Handling Cross-Midnight Time Slots:**
+   - Identified time slots that spanned across midnight in the sleep stage dataset.
+   - Split these time slots into two separate intervals:
+     - One ending at `23:59`.
+     - Another starting at `00:00`.
+
+3. **Dataset Fusion:**
+   - Matched each timestamp in the heart rate dataset with the corresponding sleep stage interval based on the `start_time` and `end_time` in the sleep stage dataset.
+   - Added a new column, `sleep_stage`, to the heart rate dataset.
+
+4. **Testing the Merge:**
+   - Verified the correctness of the merge by:
+     - Checking for unmatched timestamps in the heart rate dataset.
+     - Ensuring all timestamps were within valid time ranges defined by the sleep stage intervals.
+
+#### **Results:**
+- Successfully merged the datasets, creating a unified dataset for each day.
+- All timestamps are now associated with the correct sleep stage, ensuring consistency for further analysis.
