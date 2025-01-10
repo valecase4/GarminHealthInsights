@@ -47,7 +47,6 @@ This project focuses on analyzing heart rate data collected from Garmin devices 
 1. __What are the average, minimum, and maximum heart rate values on a daily basis?__  
     * Calculate the minimum, average, and maximum heart rate globally.
     * Visualize these values using appropriate charts.
-    * Track the reference values for the most recent day available.
 
 2. __How does heart rate differ during sleep compared to waking hours?__
     * Compare the average heart rate during sleep with the average heart rate between 12:00 PM and 10:00 PM.
