@@ -8,3 +8,7 @@ share/
 *.env
 
 .ipynb_checkpoints/
+
+data_cleaning/
+test/
+workflow/
